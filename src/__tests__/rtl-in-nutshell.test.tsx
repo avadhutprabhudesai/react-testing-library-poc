@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import ReactDOM from 'react-dom';
-import Login from '../login';
+import Login from '../components/login';
 
 describe('RTL using React and Jest ', () => {
   let container: HTMLDivElement, input: HTMLInputElement;

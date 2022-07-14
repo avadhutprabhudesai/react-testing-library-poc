@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing React Testing Library API should capture rendered component in a DocumentFragment 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -7,6 +7,11 @@
+    <input
+      id=\\"fav-number\\"
+      type=\\"number\\"
+      value=\\"0\\"
+    />
++   <p
++     role=\\"alert\\"
++   >
++     Number is valid
++   </p>
+  </DocumentFragment>"
+`;
