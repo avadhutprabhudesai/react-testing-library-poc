@@ -13,3 +13,8 @@ type User = {
 type UserResponse = {
   results: [User];
 };
+
+type Category = {
+  id: number;
+  title: string;
+};

@@ -47,6 +47,7 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^14.2.1",
+    "@types/jest-axe": "^3.5.4",
     "@types/react": "^18.0.15",
     "@typescript-eslint/eslint-plugin": "^5.20.0",
     "@typescript-eslint/parser": "^5.20.0",
@@ -63,6 +64,7 @@
     "husky": "^7.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^28.1.2",
+    "jest-axe": "^6.0.0",
     "jest-environment-jsdom": "^28.1.2",
     "lint-staged": "^12.4.0",
     "msw": "^0.44.0",
@@ -73,8 +75,8 @@
     "whatwg-fetch": "^3.6.2"
   },
   "dependencies": {
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "regenerator-runtime": "^0.13.9"
   },
   "config": {
