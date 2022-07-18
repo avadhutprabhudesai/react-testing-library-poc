@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Feedback from 'src/components/Feedback';
 
 export default function App() {
-  return <h1>App</h1>;
+  return <Feedback />;
 }
 
 ReactDOM.render(<App />, document.getElementById('root'));
