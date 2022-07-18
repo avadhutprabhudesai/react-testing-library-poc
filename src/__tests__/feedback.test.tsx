@@ -1,9 +1,8 @@
 import React from 'react';
 import Feedback from 'components/Feedback';
-import { render, screen, waitFor } from 'test/test-utils';
+import { render, screen } from 'test/test-utils';
 import userEvent from '@testing-library/user-event';
 import { httpGetCategories } from 'api/http';
-import { act } from 'react-dom/test-utils';
 
 /**
  * Form contains
@@ -201,5 +200,54 @@ describe('Testing feedback form behavior', () => {
     await user.type(details, 'More screenreader support');
 
     expect(details).toHaveDisplayValue(/more screenreader support/i);
+  });
+});
+
+describe('Testing feedback form validations', () => {
+  test('An error message below title field is shown if a form is submitted with an empty title', async () => {
+    render(<Feedback />);
+    const addButton = await screen.findByText(/add feedback/i);
+
+    const user = userEvent.setup();
+
+    await user.click(addButton);
+
+    const titleError = await screen.findByText(
+      /please provide title for the feedback/i
+    );
+
+    expect(titleError).toBeInTheDocument();
+  });
+  test('An error message below category field is shown if a form is submitted with default option', async () => {
+    render(<Feedback />);
+    const user = userEvent.setup();
+    await user.type(await screen.findByLabelText(/title/i), 'Unit testing');
+    const addButton = await screen.findByText(/add feedback/i);
+
+    await user.click(addButton);
+
+    const categoryError = await screen.findByText(
+      /please select a category for the feedback/i
+    );
+
+    expect(categoryError).toBeInTheDocument();
+  });
+  test('An error message below details field is shown if a form is submitted with empty details', async () => {
+    render(<Feedback />);
+    const user = userEvent.setup();
+    await user.type(await screen.findByLabelText(/title/i), 'Unit testing');
+    await user.selectOptions(
+      await screen.findByLabelText(/category/i),
+      'Option 2'
+    );
+    const addButton = await screen.findByText(/add feedback/i);
+
+    await user.click(addButton);
+
+    const detailsError = await screen.findByText(
+      /please provide details for the feedback/i
+    );
+
+    expect(detailsError).toBeInTheDocument();
   });
 });
