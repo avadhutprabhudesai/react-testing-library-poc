@@ -18,3 +18,14 @@ type Category = {
   id: number;
   title: string;
 };
+
+type UseCounterProps = {
+  initialState?: number;
+  step?: number;
+};
+
+type CounterResult = {
+  count: number;
+  increment: () => void;
+  decrement: () => void;
+};
